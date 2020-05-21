@@ -1,4 +1,4 @@
-#
+# https://github.com/georgezlei/algorithm-training-py
 # Author: George Lei
 
 import random

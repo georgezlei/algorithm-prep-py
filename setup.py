@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="algorithm_training",
+    name="algorithm-training",
     version="0.0.1",
     author="George Lei",
     author_email="george@lei.nz",

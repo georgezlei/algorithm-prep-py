@@ -1,4 +1,6 @@
 from unittest import TestCase
+# https://github.com/georgezlei/algorithm-training-py
+# Author: George Lei
 import algorithm_training as algo
 import algorithm_training.classic.sort as sort
 

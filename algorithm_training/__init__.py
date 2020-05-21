@@ -1,3 +1,6 @@
+# https://github.com/georgezlei/algorithm-training-py
+# Author: George Lei
+
 import time
 import copy
 
@@ -10,8 +13,8 @@ def test(func, test_cases):
   '''
 
   passed = True
-  print('Test Case Name\t\t\tStatus\tTime')
-  print('-------------------------------------------------')
+  print('{:30}{:7}{:9}'.format('Test Case Name', 'Status', 'Time'))
+  print('-' * 42)
   for case in test_cases:
     input = copy.deepcopy(case['in'])
     time0 = time.time()
@@ -22,7 +25,12 @@ def test(func, test_cases):
     if out == case['out']:
       print('{:30}passed{:9.2f} ms'.format(case['name'], timeUsed))
     else:
-      print('{:30}:failed. Expects\n{}\nbut get\n{}'.format(case['name'], case['out'], out))
+      expected, actual = case['out'], out
+      if isinstance(expected, (str, list, tuple, dict, set)) and len(expected) > 10:
+        expected = '\n' + expected + '\n'
+      if isinstance(actual, (str, list, tuple, dict, set)) and len(actual) > 10:
+        actual = '\n' + actual
+      print('{:30}Failed. Expects {} but get {}'.format(case['name'], expected, out))
       passed = False
 
   return passed
