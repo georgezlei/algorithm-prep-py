@@ -13,3 +13,6 @@ class StringSearchTest(TestCase):
 
   def test_kmp(self):
     self.assertTrue(at.test(s.kmp, s.test_cases))
+
+  def test_robin_karp(self):
+    self.assertTrue(at.test(s.rabin_karp, s.test_cases))

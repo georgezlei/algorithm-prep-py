@@ -15,7 +15,19 @@ def string_find(s, t):
   return s.find(t)
 
 def kmp(s, t):
-  next = kmp_preprocess(t)
+  # preprocess t
+  next, cur = [-1], 0
+  for i in range(1, len(t)):
+    if t[i] == t[cur]:
+      next.append(next[cur])
+      cur += 1
+    else:
+      next.append(cur)
+      cur = next[cur]
+      while cur >= 0 and t[cur] != t[i]:
+        cur = next[cur]
+      cur += 1
+  # search in s
   i = j = 0
   while i < len(s):
     if s[i] == t[j]:
@@ -28,30 +40,32 @@ def kmp(s, t):
         i, j = i + 1, j + 1
   return -1
 
-def kmp_preprocess(t):
-  next, cur = [-1], 0
-  for i in range(1, len(t)):
-    if t[i] == t[cur]:
-      next.append(next[cur])
-      cur += 1
-    else:
-      next.append(cur)
-      cur = next[cur]
-      while cur >= 0 and t[cur] != t[i]:
-        cur = next[cur]
-      cur += 1
-  return next
-
 def rabin_karp(s, t):
-  pass
+  n = len(t)
+  a, a_n = 3, 3 ** n
 
-def suffix_tree(s, t):
-  pass
+  def rolling_hash(string):
+    h, k = 0, len(string)
+    for i in range(k):
+      h += ord(string[i]) * a ** (k - i - 1)
+    return h
+
+  thash = rolling_hash(t)
+  shash = rolling_hash(s[:n])
+  if shash == thash and s[:n] == t:
+    return 0
+  for i in range(n, len(s)):
+    shash = shash * a + ord(s[i]) - ord(s[i-n]) * a_n
+    if shash == thash:
+      if s[i-n+1 : i+1] == t:
+        return i - n + 1
+  return -1
 
 algorithms = [
   ('Brute force', brute_force),
   ('str.find()', string_find),
-  ('kmp', kmp),
+  ('KMP algorithm', kmp),
+  ('Rabin-Karp algorithm', rabin_karp)
 ]
 
 test_cases = [
