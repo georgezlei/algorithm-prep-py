@@ -1,8 +1,8 @@
 # https://github.com/georgezlei/algorithm-training-py
 # Author: George Lei
 from unittest import TestCase
-import algorithm_training as at
-import algorithm_training.classic.string_search as s
+import algorithm_prep as at
+import algorithm_prep.classic.string_search as s
 
 class StringSearchTest(TestCase):
   def test_brute_force(self):

@@ -1,8 +1,8 @@
 from unittest import TestCase
 # https://github.com/georgezlei/algorithm-training-py
 # Author: George Lei
-import algorithm_training as algo
-import algorithm_training.classic.sort as sort
+import algorithm_prep as algo
+import algorithm_prep.classic.sort as sort
 
 class TestSort(TestCase):
   def test_bubble_sort(self):

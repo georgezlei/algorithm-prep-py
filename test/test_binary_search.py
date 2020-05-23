@@ -1,8 +1,8 @@
 # https://github.com/georgezlei/algorithm-training-py
 # Author: George Lei
 from unittest import TestCase
-import algorithm_training as algo
-import algorithm_training.classic.binary_search as bis
+import algorithm_prep as algo
+import algorithm_prep.classic.binary_search as bis
 
 class BiSearchTest(TestCase):
   def test_list_index(self):
