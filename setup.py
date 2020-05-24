@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="algorithm-prep",
-    version="0.0.1",
+    version="0.0.2",
     author="George Lei",
     author_email="george@lei.nz",
     description="Programming algorithm training package for programmers and students",
