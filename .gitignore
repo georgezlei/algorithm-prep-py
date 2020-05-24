@@ -1,8 +1,9 @@
 **/__pycache__
 **/*.pyc
-algorithm_training.egg-info
+algorithm_prep.egg-info
 algorithm-training-py.code-workspace
 build
 dist
 .eggs
 .vscode
+.plan
