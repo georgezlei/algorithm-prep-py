@@ -94,9 +94,9 @@ Then write your own string search algorithm
 ```
 def your_string_search(string, target):
 	"""Search target in string, and return the index of first occurance, or return -1 if not found.
-	type string: str
-	type target: str
-	rtype: int
+	:type string: str
+	:type target: str
+	:rtype: int
 	"""
 ```
 
@@ -133,9 +133,9 @@ Then add your search algorithm
 ```
 def your_search_algorithm(arr, target):
 	"""Search target in arr and return the index, or return -1 if target not found.
-	type arr: list[int]
-	type target: int
-	rtype: int
+	:type arr: list[int]
+	:type target: int
+	:rtype: int
 	"""
 ```
 
@@ -165,9 +165,10 @@ Then add your algorithm
 ```
 def your_union_find(vertices, edges):
 	"""Find the number of the components in a graph. The graph is represented in the number of vertices (the vertices will be [0,1,...,n-1]) and list of edges [(i, j), (k, l),..]
-	type vertices: int
-	type edges: list[tuple(int)]
-	rtype: int
+	:type vertices: int
+	:type edges: list[tuple(int)]
+	:rtype: int
+	"""
 ```
 
 At last you can test your algorithm
