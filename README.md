@@ -1,5 +1,3 @@
-#Algorithm Prep for Python
-
 Algorithm Prep provides an easy way to practise algorithms for programmers and students. It includes the ready-to-use test cases for user to test the algorithm, and the reference implementations to benchmark the performance of the user's algorithms.
 
 ## Installation
@@ -59,7 +57,6 @@ def your_sort_algorithm(arr):
     :type arr: List[int]
     :rtype: List[int]
     """
-	# your codes go here
 ```
 
 To test the function
@@ -167,7 +164,7 @@ Then add your algorithm
 
 ```
 def your_union_find(vertices, edges):
-	"""Find the number of the components in a graph. The graph is represented in vertices $[0,..,n-1]$ and edges $[(v_i, v_j),..]$
+	"""Find the number of the components in a graph. The graph is represented in the number of vertices (the vertices will be [0,1,...,n-1]) and list of edges [(i, j), (k, l),..]
 	type vertices: int
 	type edges: list[tuple(int)]
 	rtype: int
