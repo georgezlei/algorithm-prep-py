@@ -183,3 +183,36 @@ Or you run benchmark
 benchmark(your_union_find, algorithms, test_cases)
 ```
 
+### Topological Sort
+
+First make import statement
+
+```
+from algorithm_prep import test, benchmark
+from algorithm_prep.classic.topological_sort import algorithms, test_cases
+```
+
+Then add your algorithm
+
+```
+def your_topological_sort(vertices, edges):
+	"""Find the topological order of vertices in a graph. The graph is represented in the number of vertices (the vertices will be [0,1,...,n-1]) and list of edges [(i, j), (k, l),..]
+	:type vertices: int
+	:type edges: list[tuple(int)]
+	:rtype: list[int]
+	"""
+```
+
+At last you can test your algorithm
+
+```
+test(your_topological_sort, test_cases)
+```
+
+Or you run benchmark
+
+```
+benchmark(your_topological_sort, algorithms, test_cases)
+```
+
+### 
