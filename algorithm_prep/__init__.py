@@ -13,8 +13,10 @@ def test(func, test_cases):
   '''
 
   passed = True
+  # print header
   print('{:30}{:7}{:9}'.format('Test Case Name', 'Status', 'Time'))
   print('-' * 42)
+
   for case in test_cases:
     input = copy.deepcopy(case['in'])
     time0 = time.time()
@@ -22,15 +24,31 @@ def test(func, test_cases):
     time1 = time.time()
     timeUsed = (time1 - time0) * 1000
 
-    if out == case['out']:
+    # case['out'] is the expected output. It can be a simple Python data
+    # structure or a function taking real output as argument and return True
+    # or False and failure reason.
+    expected = case['out']
+    if callable(expected):
+      passed, fail_reason = expected(out)
+    else:
+      passed = expected == out
+      if passed:
+        fail_reason = None
+      else:
+        # build fail_reason string
+        actual = out
+        if isinstance(expected, (str, list, tuple, dict, set)) and \
+            len(str(expected)) > 10:
+          expected = '\n' + str(expected) + '\n'
+        if isinstance(actual, (str, list, tuple, dict, set)) and \
+            len(str(actual)) > 10:
+          actual = '\n' + str(actual)
+        fail_reason = 'Expects {} but get {}'.format(expected, actual)
+
+    if passed:
       print('{:30}passed{:9.2f} ms'.format(case['name'], timeUsed))
     else:
-      expected, actual = case['out'], out
-      if isinstance(expected, (str, list, tuple, dict, set)) and len(expected) > 10:
-        expected = '\n' + expected + '\n'
-      if isinstance(actual, (str, list, tuple, dict, set)) and len(actual) > 10:
-        actual = '\n' + actual
-      print('{:30}Failed. Expects {} but get {}'.format(case['name'], expected, out))
+      print('{:30}Failed. {}'.format(case['name'], fail_reason))
       passed = False
 
   return passed
@@ -43,9 +61,10 @@ def benchmark(your_algorithm, benchmark_algorithms, test_cases):
 
   Example: benchmark(your_sort_func, algorithm_training.classic.sort.all_algorithms, algorithm_training.classic.sort.test_cases)
   '''
-
+  # print header
   print('{:32}{:9}'.format('Algorithm', 'Time'))
   print('-' * 40)
+  
   algorithms = [('Your algorithm', your_algorithm)] + benchmark_algorithms
   for name, func in algorithms:
     cases = copy.deepcopy(test_cases)
