@@ -19,7 +19,7 @@ from algorithm_prep.classic.sort import test_cases
 def my_sort_function(arr):
     # my implementation
     return arr
-    
+
 test(my_sort_function, test_cases)
 ```
 
@@ -32,13 +32,13 @@ from algorithm_prep.classic.sort import algorithms, test_cases
 def my_sort_function(arr):
     # my implementation
     return arr
-    
+
 benchmark(my_sort_function, algorithms, test_cases)
 ```
 
 ## Supported Algorithms
 
-There are a few algorithms implemented in algorithm-prep. 
+There are a few algorithms implemented in algorithm-prep.
 
 ### Sorting
 
@@ -73,12 +73,12 @@ benchmark(your_sort_algorithm, algorithms, test_cases)
 
 Following reference algorithms are implemented for benchmark
 
-* Bubble Sort
-* Insertion Sort
-* Merge Sort
-* Quick Sort
-* Heap Sort
-* Radix Sort
+- Bubble Sort
+- Insertion Sort
+- Merge Sort
+- Quick Sort
+- Heap Sort
+- Radix Sort
 
 ### String Search
 
@@ -114,10 +114,10 @@ benchmark(your_string_search, algorithms, test_cases)
 
 The reference implementations of string search algorithms include
 
-* Brute force search algorithm
-* str.find() in Python
-* KMP algorithm
-* Rabin-Karp algorithm
+- Brute force search algorithm
+- str.find() in Python
+- KMP algorithm
+- Rabin-Karp algorithm
 
 ### Binary Search
 
@@ -214,5 +214,3 @@ Or you run benchmark
 ```
 benchmark(your_topological_sort, algorithms, test_cases)
 ```
-
-### 
